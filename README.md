@@ -2,12 +2,13 @@
 Trying to reproduce the issue [#148](https://github.com/microsoft/durabletask-dotnet/issues/148) in a clean repo. 
 
 ## Run to reproduce error
+Run from root
 ```shell
 cd DurableFunctionsRepro && func start
 ```
 
 ## Fix for error
-Comment in _Target_ group with name _CopyGrpcNativeAssetsToOutDir_ and run from root
+Comment in _Target_ group with name _CopyGrpcNativeAssetsToOutDir_ in [DurableFunctionsRepro.csproj](DurableFunctionsRepro/DurableFunctionsRepro.csproj) and run from root
 ```shell
 cd DurableFunctionsRepro && func start
 ```
