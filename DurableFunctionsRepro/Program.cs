@@ -1,13 +1,21 @@
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
-var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication()
-    .ConfigureServices(services =>
+class Program
+{
+    static void Main(string[] args)
     {
-        services.ConfigureFunctionsApplicationInsights();
-    })
-    .Build();
+        var host = new HostBuilder()     
+                .ConfigureFunctionsWebApplication() 
+                .ConfigureServices(services =>
+                {
+                    services.AddLogging(logging => logging.AddConsole());
 
-host.Run();
+                })
+            ;
+
+        host.Build().Run();
+    }
+}
